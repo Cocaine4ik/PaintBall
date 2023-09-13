@@ -2,11 +2,11 @@
 
 
 #include "PBGameMode.h"
-#include "PBCharacter.h"
+#include "PBPlayer.h"
 #include "PBPlayerController.h"
 
 APBGameMode::APBGameMode()
 {
-    DefaultPawnClass = APBCharacter::StaticClass();
+    DefaultPawnClass = APBPlayer::StaticClass();
     PlayerControllerClass = APBPlayerController::StaticClass();
 }
