@@ -12,7 +12,8 @@ public class PaintBall : ModuleRules
 			{ "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "EnhancedInput" });
 		PublicIncludePaths.AddRange(new[]
 		{
-			"PaintBall/Public/Player"
+			"PaintBall/Public/Player",
+			"PaintBall/Public/Components"
 		});
 	}
 }
