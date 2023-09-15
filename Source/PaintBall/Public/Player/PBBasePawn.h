@@ -23,4 +23,7 @@ protected:
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
     UPBPaintComponent* PaintComponent;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
+    float Speed = 500.0f;
 };

@@ -53,7 +53,7 @@ void APBPlayer::MoveForward(float Value)
 {
     if (CameraComponent && Value != 0.0f)
     {
-        StaticMeshComponent->AddForce(CameraComponent->GetForwardVector() * Value * 100000);
+        StaticMeshComponent->AddForce(CameraComponent->GetForwardVector() * Value * Speed * StaticMeshComponent->GetMass());
     }
 }
 
@@ -61,7 +61,7 @@ void APBPlayer::MoveRight(float Value)
 {
     if (CameraComponent && Value != 0.0f)
     {
-        StaticMeshComponent->AddForce(CameraComponent->GetRightVector() * Value * 100000);
+        StaticMeshComponent->AddForce(CameraComponent->GetRightVector() * Value * Speed * StaticMeshComponent->GetMass());
     }
 }
 
