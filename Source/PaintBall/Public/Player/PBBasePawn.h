@@ -24,6 +24,13 @@ protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
     UPBPaintComponent* PaintComponent;
 
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+    UPBPaintComponent* OtherPaintComponent;
+
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
     float Speed = 500.0f;
+
+public:
+    UFUNCTION()
+    virtual void OnCollision(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& Hit);
 };

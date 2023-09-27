@@ -6,9 +6,8 @@
 #include "Player/PBBasePawn.h"
 #include "PBAIPawn.generated.h"
 
-/**
- * 
- */
+class UBoxComponent;
+
 UCLASS()
 class PAINTBALL_API APBAIPawn : public APBBasePawn
 {
@@ -18,6 +17,9 @@ public:
     APBAIPawn(const FObjectInitializer& ObjInit);
 
 protected:
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+    UBoxComponent* BoxComponent;
+    
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
     float SpeedStep = 50.0f;
 
@@ -29,8 +31,11 @@ private:
     float GetRandomValueWithStep(float Min, float Max, float Step);
 
 public:
-    FTimerHandle RandomMoveTimerHandle;
-    
     virtual void BeginPlay() override;
+    
+    virtual void OnCollision(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& Hit) override;
+    
+    
+    FTimerHandle RandomMoveTimerHandle;
     
 };

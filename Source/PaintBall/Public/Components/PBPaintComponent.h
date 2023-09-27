@@ -19,16 +19,13 @@ protected:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Material")
     UMaterial* BaseMaterial;
     
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Color")
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Color")
     FLinearColor DefaultColor;
 
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Color")
     FLinearColor CurrentColor;
-    
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Color")
-    bool bIsCleaner = false;
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Color")
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Color")
     bool bIsPainted = false;
     
     // Called when the game starts
@@ -36,8 +33,9 @@ protected:
 
 public:
     void SetColor(FLinearColor Color);
+    void SetDefaultColor();
     
-    bool IsCleaner() const { return bIsCleaner; }
+    bool IsPainted() const { return bIsPainted;}
     FLinearColor GetDefaultColor() const { return DefaultColor; }
     FLinearColor GetCurrentColor() const { return CurrentColor; }
 };

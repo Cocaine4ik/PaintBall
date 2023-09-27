@@ -41,12 +41,9 @@ void APBPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void APBPlayer::OnCollision(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent,
     int32 OtherBodyIndex, bool bFromSweep, const FHitResult& Hit)
 {
-    auto OtherPaintComponent = OtherActor->GetComponentByClass<UPBPaintComponent>();
+    APBBasePawn::OnCollision(OverlappedComponent, OtherActor, OtherComponent, OtherBodyIndex, bFromSweep, Hit);
 
-    if (OtherPaintComponent)
-    {
-        OtherPaintComponent->SetColor(PaintComponent->GetCurrentColor());
-    }
+    OtherPaintComponent->SetColor(PaintComponent->GetCurrentColor());
 }
 
 void APBPlayer::MoveForward(float Value)

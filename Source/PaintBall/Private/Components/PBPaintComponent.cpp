@@ -22,14 +22,21 @@ void UPBPaintComponent::SetColor(FLinearColor Color)
 
     if(StaticMeshComponent && StaticMeshComponent->GetMaterial(0) && BaseMaterial && !bIsPainted)
     {
-        if(GEngine)
-            GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Some debug message!"));
-        
         const auto DynamicMaterial = UMaterialInstanceDynamic::Create(BaseMaterial, this);
         DynamicMaterial->SetVectorParameterValue(TEXT("Base Color"), Color);
 
         CurrentColor = Color;
         StaticMeshComponent->SetMaterial(0, DynamicMaterial);
-        bIsPainted = true;
+
+      bIsPainted = true;
     }
+}
+
+void UPBPaintComponent::SetDefaultColor()
+{
+    bIsPainted = false;
+
+    SetColor(DefaultColor);
+    
+    bIsPainted = false;
 }
