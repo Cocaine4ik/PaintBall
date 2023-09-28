@@ -35,7 +35,6 @@ public:
     
     virtual void OnCollision(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& Hit) override;
     
-    
+private:
     FTimerHandle RandomMoveTimerHandle;
-    
 };

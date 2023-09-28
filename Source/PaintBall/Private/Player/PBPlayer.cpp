@@ -18,7 +18,7 @@ APBPlayer::APBPlayer(const FObjectInitializer& ObjInit) : Super(ObjInit)
     bUseControllerRotationPitch = false;
     bUseControllerRotationYaw = false;
     bUseControllerRotationRoll = false;
-
+    
     SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 
     SpringArmComponent->bUsePawnControlRotation = true;

@@ -50,7 +50,7 @@ void APBAIPawn::OnCollision(UPrimitiveComponent* OverlappedComponent, AActor* Ot
 void APBAIPawn::BeginPlay()
 {
     Super::BeginPlay();
-
+    
     BoxComponent->OnComponentBeginOverlap.AddDynamic(this, &APBAIPawn::OnCollision);
     
     MoveRandomDirection();

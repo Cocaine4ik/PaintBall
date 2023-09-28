@@ -3,7 +3,6 @@
 
 #include "AI/PBAICleaner.h"
 #include "PBPaintComponent.h"
-#include "Components/BoxComponent.h"
 
 APBAICleaner::APBAICleaner(const FObjectInitializer& ObjInit) : Super(ObjInit)
 {
