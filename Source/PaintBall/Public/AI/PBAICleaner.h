@@ -6,9 +6,7 @@
 #include "AI/PBAIPawn.h"
 #include "PBAICleaner.generated.h"
 
-UCLASS
-
-()
+UCLASS()
 class PAINTBALL_API APBAICleaner : public APBAIPawn
 {
     GENERATED_BODY()

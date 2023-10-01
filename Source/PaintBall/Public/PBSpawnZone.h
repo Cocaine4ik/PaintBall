@@ -14,14 +14,12 @@ class PAINTBALL_API APBSpawnZone : public AActor
     GENERATED_BODY()
 
 public:
-    // Sets default values for this actor's properties
     APBSpawnZone();
 
 protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
     UBoxComponent* SpawnArea;
     
-    // Called when the game starts or when spawned
     virtual void BeginPlay() override;
 
 public:

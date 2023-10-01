@@ -9,8 +9,6 @@
 #include "GameFramework/Controller.h"
 #include "Components/SphereComponent.h"
 #include "Components/PBPaintComponent.h"
-#include "PBGameMode.h"
-#include "AI/PBAICleaner.h"
 
 APBPlayer::APBPlayer(const FObjectInitializer& ObjInit) : Super(ObjInit)
 {

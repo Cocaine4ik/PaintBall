@@ -70,5 +70,4 @@ void UPBPaintComponent::ChangePaintedCleanersCount(int32 Value)
     {
         OnChangePaintedCleanersCount.Broadcast(Value);
     }
-
 }

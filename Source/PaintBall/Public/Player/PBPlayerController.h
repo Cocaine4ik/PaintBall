@@ -6,9 +6,6 @@
 #include "GameFramework/PlayerController.h"
 #include "PBPlayerController.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class PAINTBALL_API APBPlayerController : public APlayerController
 {

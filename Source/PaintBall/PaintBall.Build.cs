@@ -13,7 +13,9 @@ public class PaintBall : ModuleRules
 		PublicIncludePaths.AddRange(new[]
 		{
 			"PaintBall/Public/Player",
-			"PaintBall/Public/Components"
+			"PaintBall/Public/Components",
+			"PaintBall/Public/AI",
+			"PaintBall/Public/UI"
 		});
 	}
 }

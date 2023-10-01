@@ -9,18 +9,11 @@
 class UBoxComponent;
 class APBSpawnZone;
 
-// DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangePaintedPawnsCount, int32, Value);
-
-// DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeCleanersPawnsCount, int32, Value);
-
 UCLASS()
 class PAINTBALL_API APBGameMode : public AGameMode
 {
     GENERATED_BODY()
 
-   // FOnChangePaintedPawnsCount OnChangePaintedPawnsCount;
-   // FOnChangeCleanersPawnsCount OnChangeCleanersPawnsCount;
-    
 public:
     APBGameMode();
 

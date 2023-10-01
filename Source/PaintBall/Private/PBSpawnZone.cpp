@@ -5,14 +5,12 @@
 #include "Components/BoxComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 
-// Sets default values
 APBSpawnZone::APBSpawnZone()
 {
     SpawnArea = CreateDefaultSubobject<UBoxComponent>(TEXT("SpawnArea"));
     RootComponent = SpawnArea;
 }
 
-// Called when the game starts or when spawned
 void APBSpawnZone::BeginPlay()
 {
     Super::BeginPlay();
