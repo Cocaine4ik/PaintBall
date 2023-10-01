@@ -3,6 +3,8 @@
 
 #include "Player/PBBasePawn.h"
 #include "Components/PBPaintComponent.h"
+#include "AI/PBAICleaner.h"
+#include "PBGameMode.h"
 
 // Sets default values
 APBBasePawn::APBBasePawn(const FObjectInitializer& ObjInit) : Super(ObjInit)

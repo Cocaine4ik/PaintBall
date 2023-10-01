@@ -3,6 +3,7 @@
 
 #include "AI/PBAICleaner.h"
 #include "PBPaintComponent.h"
+#include "PBGameMode.h"
 
 APBAICleaner::APBAICleaner(const FObjectInitializer& ObjInit) : Super(ObjInit)
 {
@@ -13,8 +14,10 @@ void APBAICleaner::OnCollision(UPrimitiveComponent* OverlappedComponent, AActor*
 {
     APBAIPawn::OnCollision(OverlappedComponent, OtherActor, OtherComponent, OtherBodyIndex, bFromSweep, Hit);
     
-    if (!PaintComponent->IsPainted())
+    if (!PaintComponent->IsPainted() && OtherPaintComponent->IsPainted())
     {
         OtherPaintComponent->SetDefaultColor();
+        
     }
+    OtherPaintComponent = nullptr;
 }

@@ -2,6 +2,8 @@
 
 
 #include "Components/PBPaintComponent.h"
+#include "AI/PBAIPawn.h"
+#include "AI/PBAICleaner.h"
 
 UPBPaintComponent::UPBPaintComponent()
 {
@@ -28,7 +30,18 @@ void UPBPaintComponent::SetColor(FLinearColor Color)
         CurrentColor = Color;
         StaticMeshComponent->SetMaterial(0, DynamicMaterial);
 
-      bIsPainted = true;
+        bIsPainted = true;
+
+        if (Color == DefaultColor)
+        {
+            ChangePaintedAIPawnsCount(-1);
+            ChangePaintedCleanersCount(-1);
+        }
+        else
+        {
+            ChangePaintedAIPawnsCount(1);
+            ChangePaintedCleanersCount(1);
+        }
     }
 }
 
@@ -39,4 +52,23 @@ void UPBPaintComponent::SetDefaultColor()
     SetColor(DefaultColor);
     
     bIsPainted = false;
+}
+
+void UPBPaintComponent::ChangePaintedAIPawnsCount(int32 Value)
+{
+    const auto AIPawn = Cast<APBAIPawn>(GetOwner());
+    if (AIPawn)
+    {
+        OnChangePaintedPawnsCount.Broadcast(Value);
+    }
+}
+
+void UPBPaintComponent::ChangePaintedCleanersCount(int32 Value)
+{
+    const auto AICleaner = Cast<APBAICleaner>(GetOwner());
+    if (AICleaner)
+    {
+        OnChangePaintedCleanersCount.Broadcast(Value);
+    }
+
 }

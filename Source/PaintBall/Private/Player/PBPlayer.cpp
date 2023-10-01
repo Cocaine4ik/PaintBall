@@ -2,11 +2,15 @@
 
 
 #include "Player/PBPlayer.h"
+
+#include "AI/PBAICleaner.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/Controller.h"
 #include "Components/SphereComponent.h"
 #include "Components/PBPaintComponent.h"
+#include "PBGameMode.h"
+#include "AI/PBAICleaner.h"
 
 APBPlayer::APBPlayer(const FObjectInitializer& ObjInit) : Super(ObjInit)
 {
@@ -44,6 +48,7 @@ void APBPlayer::OnCollision(UPrimitiveComponent* OverlappedComponent, AActor* Ot
     APBBasePawn::OnCollision(OverlappedComponent, OtherActor, OtherComponent, OtherBodyIndex, bFromSweep, Hit);
 
     OtherPaintComponent->SetColor(PaintComponent->GetCurrentColor());
+    OtherPaintComponent = nullptr;
 }
 
 void APBPlayer::MoveForward(float Value)

@@ -25,6 +25,8 @@ protected:
 
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
     float MovementDelay = 0.3f;
+
+    bool bScored = false;
     
 private:
     void MoveRandomDirection();
@@ -34,6 +36,9 @@ public:
     virtual void BeginPlay() override;
     
     virtual void OnCollision(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& Hit) override;
+
+    bool IsScored() const { return bScored; }
+    void SetScored(bool Value) { bScored = Value; }
     
 private:
     FTimerHandle RandomMoveTimerHandle;
