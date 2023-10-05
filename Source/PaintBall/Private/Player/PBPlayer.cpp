@@ -9,6 +9,8 @@
 #include "GameFramework/Controller.h"
 #include "Components/SphereComponent.h"
 #include "Components/PBPaintComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
 
 APBPlayer::APBPlayer(const FObjectInitializer& ObjInit) : Super(ObjInit)
 {
@@ -47,6 +49,13 @@ void APBPlayer::OnCollision(UPrimitiveComponent* OverlappedComponent, AActor* Ot
 
     OtherPaintComponent->SetColor(PaintComponent->GetCurrentColor());
     OtherPaintComponent = nullptr;
+
+    if (GetWorld() && OnCollisionSound)
+    {
+        UGameplayStatics::SpawnSoundAtLocation(GetWorld(), OnCollisionSound, GetActorLocation(), GetActorRotation(), SoundVolume);
+    }
+    
+    OtherPaintComponent = OtherActor->GetComponentByClass<UPBPaintComponent>();
 }
 
 void APBPlayer::MoveForward(float Value)

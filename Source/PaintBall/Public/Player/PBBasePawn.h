@@ -6,6 +6,7 @@
 #include "GameFramework/Pawn.h"
 #include "PBBasePawn.generated.h"
 
+class USoundCue;
 class UStaticMeshComponent;
 class UPBPaintComponent;
 

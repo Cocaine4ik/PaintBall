@@ -9,6 +9,7 @@
 class USphereComponent;
 class USpringArmComponent;
 class UCameraComponent;
+class USoundCue;
 
 UCLASS()
 class PAINTBALL_API APBPlayer : public APBBasePawn
@@ -28,6 +29,12 @@ protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
     UCameraComponent* CameraComponent;
 
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Sound")
+    USoundCue* OnCollisionSound;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Sound")
+    float SoundVolume = 0.3f;
+    
 public:
     // Called to bind functionality to input
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
