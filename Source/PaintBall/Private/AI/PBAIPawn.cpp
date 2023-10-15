@@ -21,7 +21,7 @@ void APBAIPawn::MoveRandomDirection()
     
     const auto RandomVector = UKismetMathLibrary::RandomUnitVector();
     const auto RandomSpeed = GetRandomValueWithStep(0.0f, Speed, 50.0f);
-    StaticMeshComponent->AddImpulse(FVector(RandomVector.X, RandomVector.Y, 0.0f) * RandomSpeed * StaticMeshComponent->GetMass());
+    StaticMeshComponent->AddImpulse(FVector(RandomVector.X, RandomVector.Y, 0.0f) * RandomSpeed, TEXT("None"), true);
 
     GetWorld()->GetTimerManager().SetTimer(RandomMoveTimerHandle, this, &APBAIPawn::MoveRandomDirection, MovementDelay, false);
 }
